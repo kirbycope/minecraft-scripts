@@ -32,6 +32,11 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/
 Expand-Archive -LiteralPath "$downloads\IJAMinecrafts-OneBlock-1-16-4.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\IJAMinecrafts-OneBlock-1-16-4.zip" -Force -ErrorAction SilentlyContinue
 
+# Saves - Ultimate Sky Islands
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/Ultimate_Sky_Islands_v1.1.zip" -OutFile "$downloads\Ultimate_Sky_Islands_v1.1.zip";
+Expand-Archive -LiteralPath "$downloads\Ultimate_Sky_Islands_v1.1.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\Ultimate_Sky_Islands_v1.1.zip" -Force -ErrorAction SilentlyContinue
+
 # Shader Packs - SEUS
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/SEUS-Renewed-v1.0.1.zip" -OutFile "$downloads\SEUS-Renewed-v1.0.1.zip";
 Expand-Archive -LiteralPath "$downloads\SEUS-Renewed-v1.0.1.zip" -DestinationPath "$shaderpacks\SEUS-Renewed-v1.0.1";
