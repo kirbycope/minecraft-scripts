@@ -20,7 +20,7 @@ Expand-Archive -LiteralPath "$downloads\faithful-1.17.zip" -DestinationPath "$re
 Remove-Item "$downloads\faithful-1.17.zip" -Force -ErrorAction SilentlyContinue
 
 # Saves - SkyBlock
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/Skyblock 4.09.1.zip" -OutFile "$downloads\Skyblock 4.09.1";
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/Skyblock 4.09.1.zip" -OutFile "$downloads\Skyblock 4.09.1.zip";
 Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\Skyblock 4.09.1.zip" -Force -ErrorAction SilentlyContinue
 
