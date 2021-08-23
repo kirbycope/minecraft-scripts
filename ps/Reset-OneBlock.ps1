@@ -1,4 +1,4 @@
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+#Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $mcFolder = "$env:APPDATA\.minecraft";
 $fileName = "IJAMinecrafts-OneBlock-1-16-4.zip";
 $filePath = "$HOME\Downloads\$fileName";
