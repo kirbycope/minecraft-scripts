@@ -1,3 +1,4 @@
+#Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $serverPath = "C:\Server";
 cd $serverPath;
 New-Item "$serverpath\eula.txt" -Force;
