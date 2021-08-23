@@ -16,11 +16,12 @@ Remove-Item $shaderpacks -Force -Recurse -ErrorAction SilentlyContinue
 # Mods - Controllable
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/controllable-0.13.3-1.16.3.jar" -OutFile "$downloads\controllable-0.13.3-1.16.3.jar";
 Copy-Item -Path "$downloads\controllable-0.13.3-1.16.3.jar" -Destination $mods;
+Remove-Item "$downloads\controllable-0.13.3-1.16.3.jar" -Force -ErrorAction SilentlyContinue
 
 # Mods - Optifine
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/OptiFine_1.16.5_HD_U_G8.jar" -OutFile "$downloads\OptiFine_1.16.5_HD_U_G8.jar";
 Copy-Item -Path "$downloads\OptiFine_1.16.5_HD_U_G8.jar" -Destination $mods;
-Remove-Item "$downloads\controllable-0.13.3-1.16.3.jar" -Force -ErrorAction SilentlyContinue
+Remove-Item "$downloads\OptiFine_1.16.5_HD_U_G8.jar" -Force -ErrorAction SilentlyContinue
 
 # Resource Packs - Faithful
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/faithful-1.16.zip" -OutFile "$downloads\faithful-1.16.zip";
