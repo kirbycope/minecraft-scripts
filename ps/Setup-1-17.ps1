@@ -13,10 +13,6 @@ Remove-Item $resourcepacks -Force -Recurse -ErrorAction SilentlyContinue
 Remove-Item $saves -Force -Recurse -ErrorAction SilentlyContinue
 Remove-Item $shaderpacks -Force -Recurse -ErrorAction SilentlyContinue
 
-# Mods - Optifine
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -OutFile "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar";
-Copy-Item -Path "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -Destination $mods;
-Remove-Item "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34" -Force -ErrorAction SilentlyContinue
 
 # Resource Packs - Faithful
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/faithful-1.17.zip" -OutFile "$downloads\faithful-1.17.zip";
