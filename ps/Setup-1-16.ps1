@@ -28,6 +28,11 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/
 Expand-Archive -LiteralPath "$downloads\faithful-1.16.zip" -DestinationPath "$resourcepacks\faithful-1.16";
 Remove-Item "$downloads\faithful-1.16.zip" -Force -ErrorAction SilentlyContinue
 
+# Resource Pack - Mine Brick
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/MineBricks-V5-128x.zip" -OutFile "$downloads\MineBricks-V5-128x.zip";
+Expand-Archive -LiteralPath "$downloads\MineBricks-V5-128x.zip" -DestinationPath "$resourcepacks\MineBricks-V5-128x";
+Remove-Item "$downloads\MineBricks-V5-128x.zip" -Force -ErrorAction SilentlyContinue
+
 # Saves - OneBlock
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/IJAMinecrafts-OneBlock-1-16-4.zip" -OutFile "$downloads\IJAMinecrafts-OneBlock-1-16-4.zip";
 Expand-Archive -LiteralPath "$downloads\IJAMinecrafts-OneBlock-1-16-4.zip" -DestinationPath "$saves";
