@@ -7,12 +7,10 @@ $resourcepacks = "$env:APPDATA\.minecraft\resourcepacks";
 $saves = "$env:APPDATA\.minecraft\saves";
 $shaderpacks = "$env:APPDATA\.minecraft\shaderpacks";
 
-Remove-Item $mods -Force -Recurse -ErrorAction SilentlyContinue
-New-Item -ItemType directory -Path $mods;
-Remove-Item $resourcepacks -Force -Recurse -ErrorAction SilentlyContinue
-Remove-Item $saves -Force -Recurse -ErrorAction SilentlyContinue
-Remove-Item $shaderpacks -Force -Recurse -ErrorAction SilentlyContinue
-
+if(!(test-path $mods)) { New-Item -ItemType Directory -Force -Path $mods }
+if(!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $resourcepacks }
+if(!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
+if(!(test-path $shaderpacks)) { New-Item -ItemType Directory -Force -Path $shaderpacks }
 
 # Resource Packs - Faithful
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/faithful-1.17.zip" -OutFile "$downloads\faithful-1.17.zip";
