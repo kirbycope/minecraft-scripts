@@ -56,5 +56,5 @@ Remove-Item "$downloads\SEUS-Renewed-v1.0.1.zip" -Force -ErrorAction SilentlyCon
 
 # Mod Loaders - Forge
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/forge-1.16.5-36.2.2-installer.jar" -OutFile "$downloads\forge-1.16.5-36.2.2-installer.jar";
-java -jar "$downloads\forge-1.16.5-36.2.2-installer.jar"; # --installServer; # but no client??
-#Remove-Item "$downloads\forge-1.16.5-36.2.2-installer.jar" -Force -ErrorAction SilentlyContinue
+java -jar "$downloads\forge-1.16.5-36.2.2-installer.jar";
+Remove-Item "$downloads\forge-1.16.5-36.2.2-installer.jar" -Force -ErrorAction SilentlyContinue
