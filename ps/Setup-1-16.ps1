@@ -48,12 +48,6 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/
 Expand-Archive -LiteralPath "$downloads\Ultimate_Sky_Islands_v1.1.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\Ultimate_Sky_Islands_v1.1.zip" -Force -ErrorAction SilentlyContinue;
 
-# Shader Packs - SEUS
-Remove-Item "$shaderpacks\SEUS-Renewed-v1.0.1" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/common/SEUS-Renewed-v1.0.1.zip" -OutFile "$downloads\SEUS-Renewed-v1.0.1.zip";
-Expand-Archive -LiteralPath "$downloads\SEUS-Renewed-v1.0.1.zip" -DestinationPath "$shaderpacks\SEUS-Renewed-v1.0.1";
-Remove-Item "$downloads\SEUS-Renewed-v1.0.1.zip" -Force -ErrorAction SilentlyContinue;
-
 # Mod Loaders - Forge
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/forge-1.16.5-36.2.2-installer.jar" -OutFile "$downloads\forge-1.16.5-36.2.2-installer.jar";
 java -jar "$downloads\forge-1.16.5-36.2.2-installer.jar";

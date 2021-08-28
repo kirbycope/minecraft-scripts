@@ -24,12 +24,6 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/
 Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\Skyblock 4.09.1.zip" -Force -ErrorAction SilentlyContinue
 
-# Shader Packs - SEUS
-Remove-Item "$shaderpacks\SEUS-Renewed-v1.0.1" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/common/SEUS-Renewed-v1.0.1.zip" -OutFile "$downloads\SEUS-Renewed-v1.0.1.zip";
-Expand-Archive -LiteralPath "$downloads\SEUS-Renewed-v1.0.1.zip" -DestinationPath "$shaderpacks\SEUS-Renewed-v1.0.1";
-Remove-Item "$downloads\SEUS-Renewed-v1.0.1.zip" -Force -ErrorAction SilentlyContinue
-
 # Mod - Optifine
 Remove-Item "$mods\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -OutFile "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar";
