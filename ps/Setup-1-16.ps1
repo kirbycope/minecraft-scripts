@@ -18,6 +18,12 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/
 Copy-Item -Path "$downloads\controllable-0.13.3-1.16.3.jar" -Destination $mods;
 Remove-Item "$downloads\controllable-0.13.3-1.16.3.jar" -Force -ErrorAction SilentlyContinue;
 
+# Mods - Journey Map
+Remove-Item "$mods\journeymap-1.16.5-5.7.3.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/journeymap-1.16.5-5.7.3.jar" -OutFile "$downloads\journeymap-1.16.5-5.7.3.jar";
+Copy-Item -Path "$downloads\journeymap-1.16.5-5.7.3.jar" -Destination $mods;
+Remove-Item "$downloads\journeymap-1.16.5-5.7.3.jar" -Force -ErrorAction SilentlyContinue;
+
 # Mods - Optifine
 Remove-Item "$mods\OptiFine_1.16.5_HD_U_G8.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/OptiFine_1.16.5_HD_U_G8.jar" -OutFile "$downloads\OptiFine_1.16.5_HD_U_G8.jar";
