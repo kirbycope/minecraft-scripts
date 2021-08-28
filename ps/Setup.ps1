@@ -10,7 +10,9 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/commo
 Expand-Archive -LiteralPath "$downloads\SEUS-Renewed-v1.0.1.zip" -DestinationPath "$shaderpacks\SEUS-Renewed-v1.0.1";
 Remove-Item "$downloads\SEUS-Renewed-v1.0.1.zip" -Force -ErrorAction SilentlyContinue;
 
-# Java Runtime Environment
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/common/OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi" -OutFile "$downloads\OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi";
-Start-Process "$downloads\OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi";
-Remove-Item "$downloads\OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi" -Force -ErrorAction SilentlyContinue;
+# Java Runtime Environment (if needed)
+if(!(Get-Command java | Select-Object Version)) {
+    Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/common/OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi" -OutFile "$downloads\OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi";
+    Start-Process "$downloads\OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi";
+    #Remove-Item "$downloads\OpenJDK16U-jre_x64_windows_hotspot_16.0.1_9.msi" -Force -ErrorAction SilentlyContinue;
+}
