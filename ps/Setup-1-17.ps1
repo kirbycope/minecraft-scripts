@@ -34,4 +34,4 @@ Remove-Item "$downloads\SEUS-Renewed-v1.0.1.zip" -Force -ErrorAction SilentlyCon
 Remove-Item "$mods\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -OutFile "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar";
 java -jar "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar";
-Remove-Item "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -Force -ErrorAction SilentlyContinue
+Remove-Item "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -Force -ErrorAction SilentlyContinue;
