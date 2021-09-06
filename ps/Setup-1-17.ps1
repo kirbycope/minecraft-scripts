@@ -25,7 +25,7 @@ Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1.zip" -DestinationPath "$
 Remove-Item "$downloads\Skyblock 4.09.1.zip" -Force -ErrorAction SilentlyContinue
 
 # Mod - Optifine
-Remove-Item "$mods\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -Force -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -OutFile "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar";
+Remove-Item "$mods\OptiFine_1.17.1_HD_U_G9.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/OptiFine_1.17.1_HD_U_G9.jar" -OutFile "$downloads\OptiFine_1.17.1_HD_U_G9.jar";
 java -jar "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar";
-Remove-Item "$downloads\preview_OptiFine_1.17.1_HD_U_G9_pre34.jar" -Force -ErrorAction SilentlyContinue;
+Remove-Item "$downloads\OptiFine_1.17.1_HD_U_G9.jar" -Force -ErrorAction SilentlyContinue;
