@@ -7,10 +7,10 @@ $resourcepacks = "$gameDirectory\resourcepacks";
 $saves = "$gameDirectory\saves";
 $shaderpacks = "$gameDirectory\shaderpacks";
 
-if(!(test-path $mods)) { New-Item -ItemType Directory -Force -Path $mods }
-if(!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $resourcepacks }
-if(!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
-if(!(test-path $shaderpacks)) { New-Item -ItemType Directory -Force -Path $shaderpacks }
+if (!(test-path $mods)) { New-Item -ItemType Directory -Force -Path $mods }
+if (!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $resourcepacks }
+if (!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
+if (!(test-path $shaderpacks)) { New-Item -ItemType Directory -Force -Path $shaderpacks }
 
 # Resource Packs - Faithful
 Remove-Item "$resourcepacks\faithful-1.17" -Force -Recurse -ErrorAction SilentlyContinue;
