@@ -2,10 +2,10 @@
 
 $downloads = "$HOME\Downloads";
 $gameDirectory = "$env:APPDATA\.minecraft";
-$mods = "$env:APPDATA\.minecraft\mods";
-$resourcepacks = "$env:APPDATA\.minecraft\resourcepacks";
-$saves = "$env:APPDATA\.minecraft\saves";
-$shaderpacks = "$env:APPDATA\.minecraft\shaderpacks";
+$mods = "$gameDirectory\mods";
+$resourcepacks = "$gameDirectory\resourcepacks";
+$saves = "$gameDirectory\saves";
+$shaderpacks = "$gameDirectory\shaderpacks";
 
 if(!(test-path $mods)) { New-Item -ItemType Directory -Force -Path $mods }
 if(!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $resourcepacks }
