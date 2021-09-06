@@ -1,7 +1,7 @@
 # minecraft-scripts
 
 ## Instructions
-1. Install Minecraft Java Edition from Mojang.com
+1. Install Minecraft Java Edition from [Mojang.com](https://www.minecraft.net/en-us/download)
 1. Launch the profile you would like to play (ex. `1.17.1`)
 1. Close Minecraft
 1. Open Powershell ISE as an administrator
