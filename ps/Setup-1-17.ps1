@@ -20,9 +20,9 @@ Remove-Item "$downloads\faithful-1.17.zip" -Force -ErrorAction SilentlyContinue
 
 # Resource Pack - Mine Brick
 Remove-Item "$resourcepacks\MineBricks-V6-128x" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/MineBricks-V6-128x.zip" -OutFile "$downloads\MineBricks-V6-128x";
-Expand-Archive -LiteralPath "$downloads\MineBricks-V6-128x" -DestinationPath "$resourcepacks\MineBricks-V6-128x";
-Remove-Item "$downloads\MineBricks-V6-128x" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/MineBricks-V6-128x.zip" -OutFile "$downloads\MineBricks-V6-128x.zip";
+Expand-Archive -LiteralPath "$downloads\MineBricks-V6-128x.zip" -DestinationPath "$resourcepacks\MineBricks-V6-128x";
+Remove-Item "$downloads\MineBricks-V6-128x.zip" -Force -ErrorAction SilentlyContinue;
 
 # Saves - SkyBlock
 Remove-Item "$saves\Skyblock 4.09.1" -Force -Recurse -ErrorAction SilentlyContinue;
