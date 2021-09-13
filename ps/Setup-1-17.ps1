@@ -16,7 +16,7 @@ if (!(test-path $shaderpacks)) { New-Item -ItemType Directory -Force -Path $shad
 Remove-Item "$resourcepacks\faithful-1.17" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/faithful-1.17.zip" -OutFile "$downloads\faithful-1.17.zip";
 Expand-Archive -LiteralPath "$downloads\faithful-1.17.zip" -DestinationPath "$resourcepacks\faithful-1.17";
-Remove-Item "$downloads\faithful-1.17.zip" -Force -ErrorAction SilentlyContinue
+Remove-Item "$downloads\faithful-1.17.zip" -Force -ErrorAction SilentlyContinue;
 
 # Resource Pack - Mine Brick
 Remove-Item "$resourcepacks\MineBricks-V6-128x" -Force -Recurse -ErrorAction SilentlyContinue;
@@ -28,13 +28,13 @@ Remove-Item "$downloads\MineBricks-V6-128x.zip" -Force -ErrorAction SilentlyCont
 Remove-Item "$saves\Skyblock 4.09.1" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/Skyblock 4.09.1.zip" -OutFile "$downloads\Skyblock 4.09.1.zip";
 Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\Skyblock 4.09.1.zip" -Force -ErrorAction SilentlyContinue
+Remove-Item "$downloads\Skyblock 4.09.1.zip" -Force -ErrorAction SilentlyContinue;
 
 # Saves - SkyBlock Hardcore
 Remove-Item "$saves\Skyblock 4.09.1 (Hardcore)" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/Skyblock 4.09.1 (Hardcore).zip" -OutFile "$downloads\Skyblock 4.09.1 (Hardcore).zip";
 Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1 (Hardcore).zip" -DestinationPath "$saves";
-Remove-Item "$downloads\Skyblock 4.09.1 (Hardcore).zip" -Force -ErrorAction SilentlyContinue
+Remove-Item "$downloads\Skyblock 4.09.1 (Hardcore).zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod - Optifine
 Remove-Item "$mods\OptiFine_1.17.1_HD_U_G9.jar" -Force -ErrorAction SilentlyContinue;
