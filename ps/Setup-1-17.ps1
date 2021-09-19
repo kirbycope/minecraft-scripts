@@ -24,6 +24,12 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/
 Expand-Archive -LiteralPath "$downloads\MineBricks-V6-128x.zip" -DestinationPath "$resourcepacks\MineBricks-V6-128x";
 Remove-Item "$downloads\MineBricks-V6-128x.zip" -Force -ErrorAction SilentlyContinue;
 
+# Resource Pack - Xray
+Remove-Item "$resourcepacks\Xray_Ultimate_1.17_v4.1.2" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/Xray_Ultimate_1.17_v4.1.2.zip" -OutFile "$downloads\Xray_Ultimate_1.17_v4.1.2.zip";
+Expand-Archive -LiteralPath "$downloads\Xray_Ultimate_1.17_v4.1.2.zip" -DestinationPath "$resourcepacks\Xray_Ultimate_1.17_v4.1.2";
+Remove-Item "$downloads\Xray_Ultimate_1.17_v4.1.2.zip" -Force -ErrorAction SilentlyContinue;
+
 # Saves - SkyBlock
 Remove-Item "$saves\Skyblock 4.09.1" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/Skyblock 4.09.1.zip" -OutFile "$downloads\Skyblock 4.09.1.zip";

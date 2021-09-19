@@ -36,6 +36,12 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/
 Expand-Archive -LiteralPath "$downloads\MineBricks-V5-128x.zip" -DestinationPath "$resourcepacks\MineBricks-V5-128x";
 Remove-Item "$downloads\MineBricks-V5-128x.zip" -Force -ErrorAction SilentlyContinue;
 
+# Resource Pack - Xray
+Remove-Item "$resourcepacks\Xray_Ultimate_1.16_v4.1.0" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/Xray_Ultimate_1.16_v4.1.0.zip" -OutFile "$downloads\Xray_Ultimate_1.16_v4.1.0.zip";
+Expand-Archive -LiteralPath "$downloads\Xray_Ultimate_1.16_v4.1.0.zip" -DestinationPath "$resourcepacks\Xray_Ultimate_1.16_v4.1.0";
+Remove-Item "$downloads\Xray_Ultimate_1.16_v4.1.0.zip" -Force -ErrorAction SilentlyContinue;
+
 # Saves - OneBlock
 Remove-Item "$saves\OneBlock by IJAMinecraft (1.16.4)" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/IJAMinecrafts-OneBlock-1-16-4.zip" -OutFile "$downloads\IJAMinecrafts-OneBlock-1-16-4.zip";
