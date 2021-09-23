@@ -36,6 +36,28 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/
 Expand-Archive -LiteralPath "$downloads\MineBricks-V5-128x.zip" -DestinationPath "$resourcepacks\MineBricks-V5-128x";
 Remove-Item "$downloads\MineBricks-V5-128x.zip" -Force -ErrorAction SilentlyContinue;
 
+# Resource Pack - Patrix
+Remove-Item "$resourcepacks\Patrix_1.16_32x_addon" -Force -Recurse -ErrorAction SilentlyContinue;
+Remove-Item "$resourcepacks\Patrix_1.16_32x_basic" -Force -Recurse -ErrorAction SilentlyContinue;
+Remove-Item "$resourcepacks\Patrix_1.16_32x_bonus" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/Patrix_1.16_32x_addon.zip" -OutFile "$downloads\Patrix_1.16_32x_addon.zip";
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/Patrix_1.16_32x_basic.zip" -OutFile "$downloads\Patrix_1.16_32x_basic.zip";
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/Patrix_1.16_32x_bonus.zip" -OutFile "$downloads\Patrix_1.16_32x_bonus.zip";
+Expand-Archive -LiteralPath "$downloads\Patrix_1.16_32x_addon.zip" -DestinationPath "$resourcepacks\Patrix_1.16_32x_addon";
+Expand-Archive -LiteralPath "$downloads\Patrix_1.16_32x_basic.zip" -DestinationPath "$resourcepacks\Patrix_1.16_32x_basic";
+Expand-Archive -LiteralPath "$downloads\Patrix_1.16_32x_bonus.zip" -DestinationPath "$resourcepacks\Patrix_1.16_32x_bonus";
+Remove-Item "$downloads\Patrix_1.16_32x_addon.zip" -Force -ErrorAction SilentlyContinue;
+Remove-Item "$downloads\Patrix_1.16_32x_basic.zip" -Force -ErrorAction SilentlyContinue;
+Remove-Item "$downloads\Patrix_1.16_32x_bonus.zip" -Force -ErrorAction SilentlyContinue;
+(Get-Content $gameDirectory\optionsof.txt).replace('ofConnectedTextures:0', 'ofConnectedTextures:2') | Set-Content $gameDirectory\optionsof.txt
+(Get-Content $gameDirectory\optionsof.txt).replace('ofConnectedTextures:1', 'ofConnectedTextures:2') | Set-Content $gameDirectory\optionsof.txt
+(Get-Content $gameDirectory\optionsof.txt).replace('ofNaturalTextures:false', 'ofNaturalTextures:false') | Set-Content $gameDirectory\optionsof.txt
+(Get-Content $gameDirectory\optionsof.txt).replace('ofCustomColors:false', 'ofCustomColors:true') | Set-Content $gameDirectory\optionsof.txt
+(Get-Content $gameDirectory\optionsof.txt).replace('ofAlternateBlocks:false', 'ofAlternateBlocks:true') | Set-Content $gameDirectory\optionsof.txt
+(Get-Content $gameDirectory\optionsof.txt).replace('ofTrees:0', 'ofTrees:2') | Set-Content $gameDirectory\optionsof.txt
+(Get-Content $gameDirectory\optionsof.txt).replace('ofTrees:1', 'ofTrees:2') | Set-Content $gameDirectory\optionsof.txt
+(Get-Content $gameDirectory\optionsof.txt).replace('ofSmartAnimations:false', 'ofSmartAnimations:true') | Set-Content $gameDirectory\optionsof.txt
+
 # Resource Pack - Xray
 Remove-Item "$resourcepacks\Xray_Ultimate_1.16_v4.1.0" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/Xray_Ultimate_1.16_v4.1.0.zip" -OutFile "$downloads\Xray_Ultimate_1.16_v4.1.0.zip";
