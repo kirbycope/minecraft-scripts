@@ -16,6 +16,10 @@ if (!(test-path $shaderpacks)) { New-Item -ItemType Directory -Force -Path $shad
 Remove-Item "$mods\controllable-0.13.3-1.16.3.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/controllable-0.13.3-1.16.3.jar" -OutFile "$mods\controllable-0.13.3-1.16.3.jar";
 
+# Mods - Lithium
+Remove-Item "$mods\lithium-fabric-mc1.17.1-0.7.4" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/lithium-fabric-mc1.17.1-0.7.4.jar" -OutFile "$mods\lithium-fabric-mc1.17.1-0.7.4.jar";
+
 # Mods - Journey Map
 Remove-Item "$mods\journeymap-1.16.5-5.7.3.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/journeymap-1.16.5-5.7.3.jar" -OutFile "$mods\journeymap-1.16.5-5.7.3.jar";
@@ -23,6 +27,10 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/
 # Mods - Optifine
 Remove-Item "$mods\OptiFine_1.16.5_HD_U_G8.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/OptiFine_1.16.5_HD_U_G8.jar" -OutFile "$mods\OptiFine_1.16.5_HD_U_G8.jar";
+
+# Mods - Starlight
+Remove-Item "$mods\starlight-1.0.0+fabric.73f6d37" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.16/starlight-1.0.0+fabric.73f6d37.jar" -OutFile "$mods\starlight-1.0.0+fabric.73f6d37";
 
 # Resource Packs - Faithful
 Remove-Item "$resourcepacks\faithful-1.16" -Force -Recurse -ErrorAction SilentlyContinue;
