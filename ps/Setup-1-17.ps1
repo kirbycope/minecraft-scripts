@@ -32,7 +32,7 @@ Remove-Item "$downloads\faithful-1.17.zip" -Force -ErrorAction SilentlyContinue;
 
 # Resource Pack - Mine Brick
 Remove-Item "$resourcepacks\MineBricks-V7-128x" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/MineBricks V7 128x (1.17).zip" -OutFile "$downloadsMineBricks V7 128x (1.17).zip";
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/MineBricks V7 128x (1.17).zip" -OutFile "$downloads\MineBricks V7 128x (1.17).zip";
 Expand-Archive -LiteralPath "$downloads\MineBricks V7 128x (1.17).zip" -DestinationPath "$resourcepacks\MineBricks-V7-128x";
 Remove-Item "$downloads\MineBricks V7 128x (1.17).zip" -Force -ErrorAction SilentlyContinue;
 
