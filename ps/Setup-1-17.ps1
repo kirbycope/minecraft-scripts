@@ -13,16 +13,19 @@ if (!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
 if (!(test-path $shaderpacks)) { New-Item -ItemType Directory -Force -Path $shaderpacks }
 
 # Mods - Controllable
-Remove-Item "$mods\controllable-0.14.0-mc1.17.1.jar" -Force -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/controllable-0.14.0-mc1.17.1.jar" -OutFile "$mods\controllable-0.14.0-mc1.17.1.jar";
+$fileName = "controllable-0.15.0-mc1.17.1";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Journey Map
-Remove-Item "$mods\journeymap-1.17.1-5.7.3.jar" -Force -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/journeymap-1.17.1-5.7.3.jar" -OutFile "$mods\journeymap-1.17.1-5.7.3.jar";
+$fileName = "journeymap-1.17.1-5.7.3";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Optifine
-Remove-Item "$mods\OptiFine_1.17.1_HD_U_H1.jar" -Force -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/OptiFine_1.17.1_HD_U_H1.jar" -OutFile "$mods\OptiFine_1.17.1_HD_U_H1.jar";
+$fileName = "preview_OptiFine_1.17.1_HD_U_H2_pre1";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Resource Packs - Faithful
 Remove-Item "$resourcepacks\faithful-1.17" -Force -Recurse -ErrorAction SilentlyContinue;
@@ -55,6 +58,7 @@ Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1 (Hardcore).zip" -Destina
 Remove-Item "$downloads\Skyblock 4.09.1 (Hardcore).zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/forge-1.17.1-37.0.109-installer.jar" -OutFile "$downloads\forge-1.17.1-37.0.109-installer.jar";
-java -jar "$downloads\forge-1.17.1-37.0.109-installer.jar";
-Remove-Item "$downloads\forge-1.17.1-37.0.109-installer.jar" -Force -ErrorAction SilentlyContinue;
+$fileName = "forge-1.17.1-37.0.116-installer";
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/$fileName.jar" -OutFile "$downloads\$fileName.jar";
+java -jar "$downloads\$fileName.jar";
+Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
