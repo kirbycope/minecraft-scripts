@@ -58,7 +58,7 @@ Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1 (Hardcore).zip" -Destina
 Remove-Item "$downloads\Skyblock 4.09.1 (Hardcore).zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-$fileName = "forge-1.17.1-37.0.116-installer";
+$fileName = "forge-1.17.1-37.0.126-installer";
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
