@@ -19,6 +19,11 @@ $fileName = "controllable-0.15.1-1.18";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
+# Mods - Optifine
+$fileName = "preview_OptiFine_1.18_HD_U_H3_pre7";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/1.17/$fileName.jar" -OutFile "$mods\$fileName.jar";
+
 # Resource Packs - Faithful
 $fileName = "faithful-1.18";
 Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
@@ -27,7 +32,7 @@ Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resour
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-$fileName = "forge-1.18-38.0.1-installer";
+$fileName = "forge-1.18-38.0.14-installer";
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
