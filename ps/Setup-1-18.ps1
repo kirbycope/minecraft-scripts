@@ -32,7 +32,7 @@ Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resour
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-$fileName = "forge-1.18-38.0.14-installer";
+$fileName = "forge-1.18-38.0.16-installer";
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
