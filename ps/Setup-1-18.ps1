@@ -32,6 +32,14 @@ Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resour
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Saves - SkyBlock
+$fileName = "Skyblock 4.10";
+Remove-Item "$saves\Skyblock 4.10" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
+# Saves - SkyBlock (Hardcore)
+$fileName = "Skyblock 4.10 (Hardcore)";
 Remove-Item "$saves\Skyblock 4.10" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
