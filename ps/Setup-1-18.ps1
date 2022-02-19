@@ -45,8 +45,15 @@ Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$vers
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
+# Saves - SkyBlock (Offline)
+$fileName = "SkyBlock (Offline)";
+Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/SkyBlock/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
 # Mod Loaders - Forge
-$fileName = "forge-1.18.1-39.0.59-installer";
+$fileName = "forge-1.18.1-39.0.79-installer";
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
