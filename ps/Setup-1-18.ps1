@@ -20,7 +20,7 @@ Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Optifine
-$fileName = "OptiFine_1.18.1_HD_U_H4";
+$fileName = "OptiFine_1.18.2_HD_U_H6";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
@@ -60,7 +60,7 @@ Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves"
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-$fileName = "forge-1.18.1-39.0.79-installer";
+$fileName = "forge-1.18.2-40.0.19-installer";
 Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/$version/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
