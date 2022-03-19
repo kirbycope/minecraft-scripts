@@ -33,7 +33,7 @@ Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Saves - CopeCraft
 $fileName = "CopeCraft";
-Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Remove-Item "$saves\CopeCraft-main" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/CopeCraft/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
@@ -54,7 +54,7 @@ Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Saves - SkyBlock (Offline)
 $fileName = "SkyBlock (Offline)";
-Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Remove-Item "$saves\SkyBlock-main" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/SkyBlock/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
