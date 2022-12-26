@@ -1,6 +1,6 @@
 #Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $serverPath = "C:\Server";
-cd $serverPath;
+Set-Location $serverPath;
 New-Item "$serverpath\eula.txt" -Force;
 Set-Content "$serverpath\eula.txt" "eula=true";
 $serverUrl = "https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar";
