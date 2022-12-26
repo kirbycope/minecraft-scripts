@@ -8,12 +8,10 @@ $gameDirectory = "$env:APPDATA\.minecraft";
 $mods = "$gameDirectory\mods";
 $resourcepacks = "$gameDirectory\resourcepacks";
 $saves = "$gameDirectory\saves";
-$shaderpacks = "$gameDirectory\shaderpacks";
 
 if (!(test-path $mods)) { New-Item -ItemType Directory -Force -Path $mods }
 if (!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $resourcepacks }
 if (!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
-if (!(test-path $shaderpacks)) { New-Item -ItemType Directory -Force -Path $shaderpacks }
 
 # Mods - Controllable
 $fileName = "controllable-0.15.0-mc1.17.1";
