@@ -24,42 +24,47 @@ Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Optifine
-$fileName = "preview_OptiFine_1.17.1_HD_U_H2_pre1";
+$fileName = "OptiFine_1.17.1_HD_U_H1";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Resource Packs - Faithful
-Remove-Item "$resourcepacks\faithful-1.17" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "$remote/faithful-1.17.zip" -OutFile "$downloads\faithful-1.17.zip";
-Expand-Archive -LiteralPath "$downloads\faithful-1.17.zip" -DestinationPath "$resourcepacks\faithful-1.17";
-Remove-Item "$downloads\faithful-1.17.zip" -Force -ErrorAction SilentlyContinue;
+$fileName = "Faithful 32x - 1.17.1"
+Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Resource Pack - Mine Brick
-Remove-Item "$resourcepacks\MineBricks-V7-128x" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "$remote/MineBricks V7 128x (1.17).zip" -OutFile "$downloads\MineBricks V7 128x (1.17).zip";
-Expand-Archive -LiteralPath "$downloads\MineBricks V7 128x (1.17).zip" -DestinationPath "$resourcepacks\MineBricks-V7-128x";
-Remove-Item "$downloads\MineBricks V7 128x (1.17).zip" -Force -ErrorAction SilentlyContinue;
+$fileName = "MineBricks V7 128x (1.17)"
+Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Resource Pack - Xray
-Remove-Item "$resourcepacks\Xray_Ultimate_1.17_v4.1.2" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "$remote/Xray_Ultimate_1.17_v4.1.2.zip" -OutFile "$downloads\Xray_Ultimate_1.17_v4.1.2.zip";
-Expand-Archive -LiteralPath "$downloads\Xray_Ultimate_1.17_v4.1.2.zip" -DestinationPath "$resourcepacks\Xray_Ultimate_1.17_v4.1.2";
-Remove-Item "$downloads\Xray_Ultimate_1.17_v4.1.2.zip" -Force -ErrorAction SilentlyContinue;
+$fileName = "Xray_Ultimate_1.17_v4.1.2"
+Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Saves - SkyBlock
-Remove-Item "$saves\Skyblock 4.09.1" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "$remote/Skyblock 4.09.1.zip" -OutFile "$downloads\Skyblock 4.09.1.zip";
-Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\Skyblock 4.09.1.zip" -Force -ErrorAction SilentlyContinue;
+$fileName = "Skyblock 4.09.1"
+Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Saves - SkyBlock Hardcore
-Remove-Item "$saves\Skyblock 4.09.1 (Hardcore)" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "$remote/Skyblock 4.09.1 (Hardcore).zip" -OutFile "$downloads\Skyblock 4.09.1 (Hardcore).zip";
-Expand-Archive -LiteralPath "$downloads\Skyblock 4.09.1 (Hardcore).zip" -DestinationPath "$saves";
-Remove-Item "$downloads\Skyblock 4.09.1 (Hardcore).zip" -Force -ErrorAction SilentlyContinue;
+$fileName = "Skyblock 4.09.1 (Hardcore)"
+Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-$fileName = "forge-1.17.1-37.0.126-installer";
+$fileName = "forge-1.17.1-37.1.1-installer";
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
