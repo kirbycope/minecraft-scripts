@@ -8,4 +8,4 @@
 1. Run the following command, `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 1. Run [`setup.ps1`](/ps/Setup.ps1)
 1. Restart Powershell ISE [as an administrator]
-1. Run setup for the version you would like to play (ex. [`Setup-1-17.ps1`](/ps/Setup-1-17.ps1))
+1. Run setup for the version you would like to play (ex. [`.\ps\Setup-1-17.ps1`](/ps/Setup-1-17.ps1))
