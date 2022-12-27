@@ -24,7 +24,7 @@ Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Resource Packs - Faithful
-$fileName = "Faithful 32x - 1.19.3";
+$fileName = "Faithful 32x - 1.19.2";
 Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
