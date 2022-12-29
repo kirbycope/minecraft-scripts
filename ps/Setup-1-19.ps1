@@ -30,6 +30,13 @@ Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
+# Saves - SkyBlock
+$fileName = "Skyblock 4.11.2";
+Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
 # Mod Loaders - Forge
 $fileName = "forge-1.19.2-43.2.1-installer";
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$downloads\$fileName.jar";
