@@ -16,7 +16,7 @@ Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyCont
 Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
 Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resource_packs\$fileName"
+Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
 Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
 Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 
@@ -27,7 +27,7 @@ Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyCont
 Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
 Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resource_packs\$fileName"
+Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
 Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
 Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 
@@ -38,7 +38,7 @@ Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyCont
 Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
 Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resource_packs\$fileName"
+Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
 Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
 Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 
@@ -49,7 +49,7 @@ Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyCont
 Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
 Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resource_packs\$fileName"
+Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
 Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
 Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 
