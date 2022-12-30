@@ -14,17 +14,17 @@ if (!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $re
 if (!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
 
 # Mods - Controllable
-$fileName = "controllable-0.16.9-1.19.3";
+$fileName = "controllable-0.16.9-1.19.2";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Optifine
-$fileName = "preview_OptiFine_1.19.2_HD_U_I1_pre4";
+$fileName = "OptiFine_1.19.2_HD_U_H9.jar";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Resource Packs - Faithful
-$fileName = "Faithful 32x - 1.19.3";
+$fileName = "Faithful 32x - 1.19.2";
 Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
@@ -38,7 +38,7 @@ Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves"
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-$fileName = "forge-1.19.3-44.0.41-installer";
+$fileName = "forge-1.19.2-43.2.3-installer";
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
