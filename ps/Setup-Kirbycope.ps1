@@ -84,6 +84,14 @@ Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 # JAVA
 $gameDirectory = "$env:APPDATA\.minecraft";
 $saves = "$gameDirectory\saves";
+$resources = "$gameDirectory\resourcepacks";
+
+# Resource Pack: Flame of the Heart
+$fileName = "flame-of-the-heart" 
+Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resources";
+Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 
 # Save: CopeCraft
 $fileName = "CopeCraft";
@@ -106,8 +114,29 @@ Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/mai
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
+# Save: MystiCar
+$fileName = "mysticar-java";
+Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
 # Save: SkyBlock
 $fileName = "SkyBlock";
+Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
+# Save: SkyBlock Four Sticks
+$fileName = "skyblock-four-sticks";
+Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
+# Save: Void World Java
+$fileName = "void-world-java";
 Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
