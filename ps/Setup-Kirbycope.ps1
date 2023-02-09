@@ -67,6 +67,13 @@ Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mct
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName";
 Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 
+# World Template: MystiCar
+$fileName = "mysticar-bedrock";
+Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mctemplate" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName";
+Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+
 # World Template: SkyBlock Bedrock
 $fileName = "SkyBlock-Bedrock";
 Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
@@ -83,15 +90,23 @@ Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
 
 # JAVA
 $gameDirectory = "$env:APPDATA\.minecraft";
-$saves = "$gameDirectory\saves";
 $resources = "$gameDirectory\resourcepacks";
+$saves = "$gameDirectory\saves";
+$skins = "$gameDirectory\assets\skins";
 
 # Resource Pack: Flame of the Heart
 $fileName = "flame-of-the-heart" 
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
+Remove-Item "$resources\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resources";
 Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+
+# Save: Build Below Bedrock
+$fileName = "build-below-bedrock";
+Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Save: CopeCraft
 $fileName = "CopeCraft";
@@ -148,3 +163,7 @@ Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinu
 Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
+# Skin - Lumberjack
+Remove-Item "$skins\2013_08_09_skin_20130809053626142196.png" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/common/2013_08_09_skin_20130809053626142196.png" -OutFile "$skins\2013_08_09_skin_20130809053626142196.png";
