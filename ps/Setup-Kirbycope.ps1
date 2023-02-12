@@ -122,6 +122,13 @@ Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/mai
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
+# Save: Item Rush
+$fileName = "item-rush-java";
+Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
 # Save: minecRAFT
 $fileName = "minecRAFT";
 Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
