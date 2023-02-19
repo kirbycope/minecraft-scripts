@@ -1,176 +1,108 @@
 ﻿#Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-$downloads = "$HOME\Downloads";
+$downloads = "$HOME\Downloads"
+$dirBedrock = "$env:LOCALAPPDATA\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang"
+$behaviorPacks = "$dirBedrock\behavior_packs"
+$resourcePacks = "$dirBedrock\resource_packs"
+$worldTemplates = "$dirBedrock\world_templates"
+$minecraftWorlds = "$dirBedrock\minecraftWorlds"
+$dirJava = "$env:APPDATA\.minecraft"
+$skins = "$dirJava\assets\skins"
 
-# BEDROCK
-$comMojang = "$env:LOCALAPPDATA\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang";
-$behaviorPacks = "$comMojang\behavior_packs";
-$minecraftWorlds = "$comMojang\minecraftWorlds";
-$resourcePacks = "$comMojang\resource_packs";
-$worldTemplates = "$comMojang\world_templates";
+function Get-McAddon {
+    param (
+        [string]$fileName 
+    )
+    Write-Output "Setting up $fileName.mcaddon..."
+    Remove-Item "$behaviorPacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue
+    Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue
+    Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip"
+    Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$dirBedrock\$fileName"
+    Get-ChildItem -Directory "$dirBedrock\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
+    Get-ChildItem -Directory "$dirBedrock\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
+    Remove-Item "$dirBedrock\$fileName" -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Write-Output "Done."
+}
 
-# Add-On: Cluckshroom
-$fileName = "Cluckshroom"
-Remove-Item "$behaviorPacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
-Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+function Get-McTemplate {
+    param (
+        [string]$fileName 
+    )
+    Write-Output "Setting up $fileName.mctemplate..."
+    Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue
+    Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mctemplate" -OutFile "$downloads\$fileName.zip"
+    Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName"
+    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Write-Output "Done."
+}
 
-# Add-On: Little Buddy
-$fileName = "little-buddy"
-Remove-Item "$behaviorPacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
-Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+function Get-McWorld {
+    param (
+        [string]$fileName 
+    )
+    Write-Output "Setting up $fileName.mcworld..."
+    Remove-Item "$minecraftWorlds\$fileName" -Force -Recurse -ErrorAction SilentlyContinue
+    Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcworld" -OutFile "$downloads\$fileName.zip"
+    Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$minecraftWorlds\$fileName"
+    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Write-Output "Done."
+}
 
-# Add-On: Hearthstone Bedrock
-$fileName = "hearthstone-bedrock"
-Remove-Item "$behaviorPacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
-Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+function Get-ResourcePack {
+    param (
+        [string]$fileName 
+    )
+    Write-Output "Setting up $fileName resource pack..."
+    $resources = "$dirJava\resourcepacks"
+    Remove-Item "$resources\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue
+    Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip"
+    Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resources"
+    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Write-Output "Done."
+}
 
-# Addon: Mob Spawner Bedrock
-$fileName = "mob-spawner-bedrock"
-Remove-Item "$behaviorPacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Remove-Item "$resourcePacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcaddon" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$comMojang\$fileName";
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
-Get-ChildItem -Directory "$comMojang\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
-Remove-Item "$comMojang\$fileName" -Recurse -Force -ErrorAction SilentlyContinue;
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+function Get-Save {
+    param (
+        [string]$fileName 
+    )
+    Write-Output "Setting up $fileName save..."
+    $saves = "$dirJava\saves"
+    Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue
+    Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip"
+    Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves"
+    Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue
+    Write-Output "Done."
+}
 
-# World: Void World Bedrock
-$fileName = "void-world-bedrock";
-Remove-Item "$minecraftWorlds\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcworld" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$minecraftWorlds\$fileName";
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+function Get-Skin {
+    Write-Output "Getting Kirbycope's avatar..."
+    Remove-Item "$skins\2013_08_09_skin_20130809053626142196.png" -Force -Recurse -ErrorAction SilentlyContinue
+    Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/common/2013_08_09_skin_20130809053626142196.png" -OutFile "$skins\kirbycope.png"
+    Write-Output "Done."
+}
 
-# World Template: Bedrock Earth
-$fileName = "Bedrock-Earth";
-Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mctemplate" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName";
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
+# Bedrock
+Get-McAddon "Cluckshroom"
+Get-McAddon "little-buddy"
+Get-McAddon "hearthstone-bedrock"
+Get-McAddon "mob-spawner-bedrock"
+Get-McTemplate "Bedrock-Earth"
+Get-McTemplate "mysticar-bedrock"
+Get-McTemplate "SkyBlock-Bedrock"
+Get-McTemplate "skyblock-stranded-bedrock"
+Get-McWorld "void-world-bedrock"
 
-# World Template: MystiCar
-$fileName = "mysticar-bedrock";
-Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mctemplate" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName";
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
-
-# World Template: SkyBlock Bedrock
-$fileName = "SkyBlock-Bedrock";
-Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mctemplate" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName";
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
-
-# World Template: SkyBlock Stranded Bedrock
-$fileName = "skyblock-stranded-bedrock";
-Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mctemplate" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName";
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
-
-# JAVA
-$gameDirectory = "$env:APPDATA\.minecraft";
-$resources = "$gameDirectory\resourcepacks";
-$saves = "$gameDirectory\saves";
-$skins = "$gameDirectory\assets\skins";
-
-# Resource Pack: Flame of the Heart
-$fileName = "flame-of-the-heart" 
-Remove-Item "$resources\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resources";
-Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue;
-
-# Save: Build Below Bedrock
-$fileName = "build-below-bedrock";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: CopeCraft
-$fileName = "CopeCraft";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: Expanding World
-$fileName = "expanding-world";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: Item Rush
-$fileName = "item-rush-java";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: minecRAFT
-$fileName = "minecRAFT";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: MystiCar
-$fileName = "mysticar-java";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: SkyBlock
-$fileName = "SkyBlock";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: SkyBlock Four Sticks
-$fileName = "skyblock-four-sticks";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: Void World Java
-$fileName = "void-world-java";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Save: World of Minecraft
-$fileName = "world-of-minecraft";
-Remove-Item "$saves\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip";
-Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
-Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
-
-# Skin - Lumberjack
-Remove-Item "$skins\2013_08_09_skin_20130809053626142196.png" -Force -Recurse -ErrorAction SilentlyContinue;
-Invoke-WebRequest "https://github.com/kirbycope/minecraft-scripts/raw/main/common/2013_08_09_skin_20130809053626142196.png" -OutFile "$skins\2013_08_09_skin_20130809053626142196.png";
+# Java
+Get-ResourcePack "flame-of-the-heart" 
+Get-Save "build-below-bedrock"
+Get-Save "CopeCraft"
+Get-Save "expanding-world"
+Get-Save "item-rush-java"
+Get-Save "minecRAFT"
+Get-Save "mysticar-java"
+Get-Save "SkyBlock"
+Get-Save "skyblock-four-sticks"
+Get-Save "void-world-java"
+Get-Save "world-of-minecraft"
+Get-Skin
