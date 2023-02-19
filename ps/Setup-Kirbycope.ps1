@@ -21,7 +21,7 @@ function Get-McAddon {
     Get-ChildItem -Directory "$dirBedrock\$fileName" -Filter "*Behavior" | Move-Item -Destination "$behaviorPacks\$fileName"
     Get-ChildItem -Directory "$dirBedrock\$fileName" -Filter "*Resources" | Move-Item -Destination "$resourcePacks\$fileName"
     Remove-Item "$dirBedrock\$fileName" -Recurse -Force -ErrorAction SilentlyContinue
-    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue
     Write-Output "Done."
 }
 
@@ -33,7 +33,7 @@ function Get-McTemplate {
     Remove-Item "$worldTemplates\$fileName" -Force -Recurse -ErrorAction SilentlyContinue
     Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mctemplate" -OutFile "$downloads\$fileName.zip"
     Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$worldTemplates\$fileName"
-    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue
     Write-Output "Done."
 }
 
@@ -45,7 +45,7 @@ function Get-McWorld {
     Remove-Item "$minecraftWorlds\$fileName" -Force -Recurse -ErrorAction SilentlyContinue
     Invoke-WebRequest "https://github.com/kirbycope/$fileName/raw/main/$fileName.mcworld" -OutFile "$downloads\$fileName.zip"
     Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$minecraftWorlds\$fileName"
-    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue
     Write-Output "Done."
 }
 
@@ -58,7 +58,7 @@ function Get-ResourcePack {
     Remove-Item "$resources\$fileName-main" -Force -Recurse -ErrorAction SilentlyContinue
     Invoke-WebRequest "https://github.com/kirbycope/$fileName/archive/refs/heads/main.zip" -OutFile "$downloads\$fileName.zip"
     Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resources"
-    Remove-Item "$downloads\$fileName" -Force -ErrorAction SilentlyContinue
+    Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue
     Write-Output "Done."
 }
 
@@ -88,6 +88,7 @@ Get-McAddon "little-buddy"
 Get-McAddon "hearthstone-bedrock"
 Get-McAddon "mob-spawner-bedrock"
 Get-McTemplate "Bedrock-Earth"
+Get-McTemplate "item-rush-bedrock"
 Get-McTemplate "mysticar-bedrock"
 Get-McTemplate "SkyBlock-Bedrock"
 Get-McTemplate "skyblock-stranded-bedrock"
