@@ -19,9 +19,9 @@ Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Optifine
-#$fileName = "OptiFine_1.19.2_HD_U_H9";
-#Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
-#Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
+$fileName = "preview_OptiFine_1.19.3_HD_U_I2_pre5";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Resource Packs - Faithful
 $fileName = "Faithful 32x - 1.19.3";
@@ -38,7 +38,7 @@ Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves"
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
 
 # Mod Loaders - Forge
-$fileName = "forge-1.19.3-44.1.9-installer";
+$fileName = "forge-1.19.3-44.1.17-installer";
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
