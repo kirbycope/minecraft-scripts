@@ -86,6 +86,7 @@ function Get-Skin {
 Get-McAddon "Cluckshroom"
 Get-McAddon "little-buddy"
 Get-McAddon "hearthstone-bedrock"
+Get-McAddon "MineKart"
 Get-McAddon "mine-pikmin"
 Get-McAddon "mob-spawner-bedrock"
 Get-McTemplate "Bedrock-Earth"
