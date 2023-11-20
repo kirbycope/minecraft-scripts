@@ -19,12 +19,12 @@ Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Optifine
-$fileName = "OptiFine_1.20.1_HD_U_I5";
+$fileName = "preview_OptiFine_1.20.1_HD_U_I6_pre6";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mod Loaders - Forge
-$fileName = "forge-1.20.1-47.0.35-installer";
+$fileName = "forge-1.20.1-47.1.43-installer";
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
