@@ -18,6 +18,11 @@ $fileName = "controllable-forge-1.20.1-0.20.3";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
+# Mods - Framework
+$fileName = "framework-forge-1.20.1-0.6.16";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
+
 # Mods - Optifine
 $fileName = "preview_OptiFine_1.20.1_HD_U_I6_pre6";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
