@@ -35,7 +35,7 @@ java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 
 # Resource Packs - Faithful
-$fileName = "Faithful 32x - 1.20.1";
+$fileName = "Faithful 32x - 1.20.2";
 Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
