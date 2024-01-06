@@ -24,7 +24,7 @@ Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Optifine
-$fileName = "preview_OptiFine_1.20.1_HD_U_I6_pre6";
+$fileName = "preview_OptiFine_1.20.4_HD_U_I7_pre2";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
