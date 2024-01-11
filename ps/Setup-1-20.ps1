@@ -13,18 +13,13 @@ if (!(test-path $mods)) { New-Item -ItemType Directory -Force -Path $mods }
 if (!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $resourcepacks }
 if (!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
 
-# Mods - Controllable
+# Mods - Controllable (https://www.curseforge.com/minecraft/mc-mods/controllable)
 $fileName = "controllable-forge-1.20.1-0.20.3";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
-# Mods - Framework
+# Mods - Framework (https://www.curseforge.com/minecraft/mc-mods/framework)
 $fileName = "framework-forge-1.20.1-0.6.16";
-Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
-Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
-
-# Mods - Optifine
-$fileName = "preview_OptiFine_1.20.4_HD_U_I7_pre2";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
