@@ -83,6 +83,7 @@ function Get-Skin {
 }
 
 # Bedrock
+Get-McAddon "cobblemon-bedrock"
 Get-McAddon "Cluckshroom"
 Get-McAddon "EasterEgg"
 Get-McAddon "little-buddy"
@@ -107,6 +108,7 @@ Get-McWorld "void-world-bedrock"
 # Java
 Get-ResourcePack "flame-of-the-heart" 
 Get-Save "build-below-bedrock"
+Get-Save "bonus-chest-java"
 Get-Save "crossy-road-java"
 Get-Save "CopeCraft"
 Get-Save "expanding-world"

@@ -23,13 +23,13 @@ $fileName = "framework-forge-1.20.1-0.6.16";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
-# Mod Loaders - Forge
+# Mod Loaders - Forge (https://files.minecraftforge.net/net/minecraftforge/forge/)
 $fileName = "forge-1.20.1-47.1.43-installer";
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 
-# Resource Packs - Faithful
+# Resource Packs - Faithful (https://faithfulpack.net/faithful32x/latest)
 $fileName = "Faithful 32x - 1.20.4";
 Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
