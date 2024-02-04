@@ -104,6 +104,7 @@ Get-McTemplate "SkyBlock-Bedrock"
 Get-McTemplate "skyblock-four-sticks-bedrock"
 Get-McTemplate "skyblock-stranded-bedrock"
 Get-McTemplate "smb-bedrock"
+Get-McWorld "one-chunk-bedrock"
 Get-McWorld "void-world-bedrock"
 
 # Java
