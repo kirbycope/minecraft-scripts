@@ -19,12 +19,12 @@ Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Framework (https://www.curseforge.com/minecraft/mc-mods/framework)
-$fileName = "framework-forge-1.20.1-0.6.16";
+$fileName = "framework-forge-1.20.4-0.7.0";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mod Loaders - Forge (https://files.minecraftforge.net/net/minecraftforge/forge/)
-$fileName = "forge-1.20.1-47.1.43-installer";
+$fileName = "forge-1.20.4-49.0.31-installer";
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$downloads\$fileName.jar";
 java -jar "$downloads\$fileName.jar";
 Remove-Item "$downloads\$fileName.jar" -Force -ErrorAction SilentlyContinue;
