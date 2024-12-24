@@ -35,3 +35,17 @@ Remove-Item "$resourcepacks\$fileName" -Force -Recurse -ErrorAction SilentlyCont
 Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
 Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$resourcepacks\$fileName";
 Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
+# Saves - OneBlock
+$fileName = "IJAMinecrafts-OneBlock-1-21-3";
+Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
+
+# Saves - SkyBlock
+$fileName = "Skyblock-2.1";
+Remove-Item "$saves\$fileName" -Force -Recurse -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.zip" -OutFile "$downloads\$fileName.zip";
+Expand-Archive -LiteralPath "$downloads\$fileName.zip" -DestinationPath "$saves";
+Remove-Item "$downloads\$fileName.zip" -Force -ErrorAction SilentlyContinue;
