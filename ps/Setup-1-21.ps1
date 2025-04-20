@@ -13,13 +13,23 @@ if (!(test-path $mods)) { New-Item -ItemType Directory -Force -Path $mods }
 if (!(test-path $resourcepacks)) { New-Item -ItemType Directory -Force -Path $resourcepacks }
 if (!(test-path $saves)) { New-Item -ItemType Directory -Force -Path $saves }
 
+# Mods - Lithium (https://modrinth.com/mod/lithium/)
+$fileName = "lithium-neoforge-0.16.2+mc1.21.5";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
+
 # Mods - MidnightControls (https://modrinth.com/mod/midnightcontrols/)
-$fileName = "midnightcontrols-neoforge-1.10.3";
+$fileName = "midnightcontrols-neoforge-1.10.6";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
 # Mods - Sodium (https://modrinth.com/mod/sodium/)
-$fileName = "sodium-neoforge-0.6.5+mc1.21.4";
+$fileName = "sodium-neoforge-0.6.13+mc1.21.5";
+Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
+Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
+
+# Mods - Xaero's Minimap (https://modrinth.com/mod/xaeros-minimap/)
+$fileName = "Xaeros_Minimap_25.2.3_NeoForge_1.21.5";
 Remove-Item "$mods\$fileName.jar" -Force -ErrorAction SilentlyContinue;
 Invoke-WebRequest "$remote/$fileName.jar" -OutFile "$mods\$fileName.jar";
 
